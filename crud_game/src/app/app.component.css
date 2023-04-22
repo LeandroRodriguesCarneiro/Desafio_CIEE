@@ -1,0 +1,53 @@
+nav {
+    background-color: rgb(184, 248, 248);
+    color: #fff;
+  }
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li {
+    display: inline-block;
+    position: relative;
+}
+
+nav > ul > li:hover > ul {
+    display: block;
+}
+
+nav > ul > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(184, 248, 248);
+}
+
+nav > ul > li > ul > li {
+    display: block;
+}
+
+nav > ul > li > ul > li:hover {
+    background-color: whitesmoke;
+}
+
+nav > ul > li > ul > li > a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+nav > ul > li > a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+nav > ul > li > a:hover {
+    background-color: whitesmoke;
+}
