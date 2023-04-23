@@ -39,6 +39,7 @@ def create_table_game(conection):
     conection.commit()
 
 def create_table(conection):
+    create_BD()
     create_table_developer(conection)
     create_table_gender(conection)
     create_table_game(conection)
@@ -90,9 +91,13 @@ def list_developers():
     cursor = conection.cursor()
     sql = 'SELECT * FROM `developer`'
     cursor.execute(sql)
-    developers = {}
+    developers = []
     for id,developer in cursor:
-        developers[id]=developer
+        dict_developer={
+            "id":id,
+            "developer":developer
+        }
+        developers.append(dict_developer)
     db_close(conection)
     return developers
 
@@ -102,9 +107,13 @@ def list_genders():
     cursor = conection.cursor()
     sql = 'SELECT * FROM `gender`'
     cursor.execute(sql)
-    genders = {}
+    genders = []
     for id,gender in cursor:
-        genders[id]=gender
+        dict_gender = {
+            "id":id,
+            "gender":gender
+        }
+        genders.append(dict_gender)
     db_close(conection)
     return genders
 
@@ -114,21 +123,23 @@ def list_games():
     cursor = conection.cursor()
     sql = 'SELECT G.ID,G.TITLE, G.DESCRIPTION,G.LAUNCH_DATE,DEV.DEVELOPER_NAME AS DEVELOPER,GEN.GENDER AS GENDER,GENII.GENDER AS GENDERII,GENIII.GENDER AS GENDERIII,GENIV.GENDER AS GENDERIV,GENV.GENDER AS GENDERV FROM  game as G INNER JOIN developer AS DEV ON G.DEVELOPER = DEV.ID INNER JOIN gender AS GEN ON G.GENDER = GEN.ID INNER JOIN gender AS GENII ON G.GENDERII = GENII.ID INNER JOIN gender AS GENIII ON G.GENDERIII = GENIII.ID INNER JOIN gender AS GENIV ON G.GENDERIV = GENIV.ID INNER JOIN gender AS GENV ON G.GENDERV = GENV.ID'
     cursor.execute(sql)
-    games = {}
+    games = []
     for id,game,description,lauch_date,developer,gender,genderII,genderIII,genderIV,genderV in cursor:
-        genders = []
-        list_game = []
-        genders.append(gender)
-        genders.append(genderII)
-        genders.append(genderIII)
-        genders.append(genderIV)
-        genders.append(genderV)
-        list_game.append(game)
-        list_game.append(description)
-        list_game.append(lauch_date)
-        list_game.append(developer)
-        list_game.append(genders)
-        games[id] = list_game
+        genders_list = []
+        genders_list.append(gender)
+        genders_list.append(genderII)
+        genders_list.append(genderIII)
+        genders_list.append(genderIV)
+        genders_list.append(genderV)
+        dict_games ={
+            "id":id,
+            "title":game,
+            "description":description,
+            "year":lauch_date,
+            "developer":developer,
+            "genders":genders_list
+        }
+        games.append(dict_games)
     db_close(conection)
     return games
 

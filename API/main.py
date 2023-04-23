@@ -1,25 +1,27 @@
 from flask import Flask, jsonify, request 
-from DB import create_BD,add_developer,add_genders,add_game,list_developers,list_games,list_genders,delete_developer,delete_game,delete_gender,alter_developer,alter_game,alter_gender
+from DB import add_developer,add_genders,add_game,list_developers,list_games,list_genders,delete_developer,delete_game,delete_gender,alter_developer,alter_game,alter_gender
 
 app = Flask(__name__) 
-
-create_BD()
 
 @app.get('/all')
 def return_all():
     search = request.args.get('search')
     if search == 'developer':
-        response = list_developers()
+        data_return = list_developers()
     elif search == 'gender':
-        response = list_genders()
+        data_return = list_genders()
     elif search == 'games':
-        response = list_games()
+        data_return = list_games()
     elif search is None:
         response = {'message': 'Informe um parâmetro de busca válido (developer, gender ou games)'}
         return jsonify(response), 400
     else:
         response = {'message': 'Busca inválida. Parâmetro de busca deve ser "developer", "gender" ou "games"'}
         return jsonify(response), 400
+    response = {
+        "search":search,
+        "data":data_return
+    }
     return jsonify(response), 200
 
 @app.post('/add')
