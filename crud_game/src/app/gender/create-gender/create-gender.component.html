@@ -1,0 +1,11 @@
+<h2>Criar Genero</h2>
+<div class="input">
+    <label for="newGender">Genero:
+        <input type="text" id="newGender" name="newGender" placeholder="Novo Genero" [(ngModel)]="request.gender">
+    </label>
+    <button (click)="save()">Salvar</button>
+</div>
+<div class="new" *ngIf="response">
+    <label>id: {{ response.id }}</label>
+    <label>Genero: {{ response.gender }}</label>
+</div>

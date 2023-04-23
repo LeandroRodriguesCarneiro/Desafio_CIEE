@@ -1,0 +1,18 @@
+<div *ngIf="response_games">
+    <h2>Lista de Jogos:</h2>
+    <div class="card_games_field">
+      <div *ngFor="let game of response_games.data" class="card_game">
+        <h3>{{ game.title }}</h3>
+        <p><strong>id: </strong> {{ game.id }}</p>
+        <p><strong>descrição: </strong>{{ game.description }}</p>
+        <p><strong>Desenvolvedor:</strong> {{ game.developer }}</p>
+        <p><strong>Ano de lançamento:</strong> {{ game.year }}</p>
+        <p><strong>Gêneros: </strong> <button *ngFor="let gender of game.genders">{{ gender }}</button></p>
+          <p>
+            <button>
+              <a routerLink="/game/update/{{ game.id }}">Editar</a>
+            </button>
+          </p>
+      </div>
+    </div>
+</div>

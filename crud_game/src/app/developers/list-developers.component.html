@@ -1,0 +1,7 @@
+<h2>Lista de Desenvolvedoras:</h2>
+<div *ngIf="response_developer" class="list-developer">
+    <div *ngFor="let developer of response_developer.data"> 
+        <p><strong>Id:</strong> {{ developer.id }}</p>
+        <p><strong>Generos: </strong> {{ developer.developer }}</p>
+    </div>
+</div>

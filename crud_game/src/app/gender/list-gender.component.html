@@ -1,0 +1,7 @@
+<h2>Lista de Generos</h2>
+<div *ngIf="response_gender" class="list-gender">
+    <div *ngFor="let gender of response_gender.data"> 
+        <p><strong>Id:</strong> {{ gender.id }}</p>
+        <p><strong>Generos: </strong> {{ gender.gender }}</p>
+    </div>
+</div>

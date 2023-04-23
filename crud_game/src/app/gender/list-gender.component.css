@@ -1,0 +1,21 @@
+.list-gender {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .list-gender > div {
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 20%;
+    max-width: 400px;
+    }
+    
+    .list-gender > div p {
+    margin: 0;
+    }
+    
+    .list-gender > div p:first-child {
+    font-weight: bold;
+    }

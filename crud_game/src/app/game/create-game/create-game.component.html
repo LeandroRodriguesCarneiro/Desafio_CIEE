@@ -1,0 +1,43 @@
+<h2>Criar Jogos</h2>
+<div class="input">
+    <div class="input-text">
+        <label for="title">Titulo:
+            <input type="text" id="title" name="title" placeholder="Novo Titulo" [(ngModel)]="request.title">
+        </label>
+        <label for="description">Descricao:
+            <textarea name="description" id="description" placeholder="Descricao" [(ngModel)]="request.description"></textarea>
+        </label>
+        <label for="year">Ano de lancamento:
+            <input type="number" name="year" id="year" placeholder="Digite o ano de lancamento do jogo" [(ngModel)]="request.lauch_date">
+        </label>
+    </div>
+    <div class="input-checkbox">
+        <label for="developer" *ngIf="response_developer">Desenvolvedores:
+            <div *ngFor="let developer of response_developer.data">
+                <input type="radio" name="developer" id="developer" value="{{ developer.id }}" [(ngModel)]="request.developer">{{developer.developer}}
+            </div>  
+            <p>Selecione apenas uma Desenvolvedora</p>
+        </label>
+        <label *ngIf="response_gender">
+            Gêneros:
+            <div *ngFor="let gender of response_gender.data">
+              <label>
+                <input type="checkbox" name="genders" [value]="gender.id" (change)="selectGender($event, gender.id)">{{gender.gender}}
+              </label>
+            </div>
+        </label>          
+    </div>
+    <button (click)="save()">Salvar</button>
+</div>
+<div class="new-game" *ngIf="response">
+    <div class="card_games_field">
+        <div class="card_game">
+          <h3>{{ response.title }}</h3>
+          <p><strong>id: </strong> {{ response.id }}</p>
+          <p><strong>descrição: </strong>{{ response.description }}</p>
+          <p><strong>Desenvolvedor:</strong> {{ response.developer }}</p>
+          <p><strong>Ano de lançamento:</strong> {{ response.year }}</p>
+          <p><strong>Gêneros: </strong> <button *ngFor="let gender of response.genders">{{ gender }}</button></p>
+        </div>
+      </div>
+</div>

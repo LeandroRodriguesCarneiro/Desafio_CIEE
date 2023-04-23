@@ -1,0 +1,41 @@
+.card_games_field {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card_game {
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .card_game h3 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .card_game p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .card_game p strong {
+    font-weight: bold;
+  }
+  
+  .card_game button {
+    background-color: rgb(138, 241, 241);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    padding: 5px 10px;
+  }
+  .card_game button:hover {
+    background-color: rgb(23, 247, 247);
+  }

@@ -2,23 +2,16 @@
     <ul class="menu">
         <li><a>Listar</a>
             <ul>
-                <li><a routerLink="/list_game">Games</a></li>
-                <li><a href="#">Desenvolvedora</a></li>
-                <li><a href="#">Gêneros</a></li>
+                <li><a routerLink="/game">Games</a></li>
+                <li><a routerLink="/developer">Desenvolvedora</a></li>
+                <li><a routerLink="/gender">Gêneros</a></li>
             </ul>
         </li>
         <li><a>Adicionar</a>
             <ul>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Desenvolvedora</a></li>
-                <li><a href="#">Gêneros</a></li>
-            </ul>
-        </li>
-        <li><a>Alterar</a>
-            <ul>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Desenvolvedora</a></li>
-                <li><a href="#">Gêneros</a></li>
+                <li><a routerLink="/game/create-game">Games</a></li>
+                <li><a routerLink="/developer/create-developer">Desenvolvedora</a></li>
+                <li><a routerLink="/gender/create-gender">Gêneros</a></li>
             </ul>
         </li>
         <li><a>Apagar</a>
@@ -30,6 +23,6 @@
         </li>
     </ul>
     </nav>
-<div>
+
     <router-outlet></router-outlet>
-</div>
+
