@@ -9,15 +9,15 @@ Ativar o ambiente virtual e utilizar o seguinte comando para instalar as bibliot
 --> pip install -r requirements.txt
 
 Versões dos recursos utilizados: 
-click==8.1.3
-colorama==0.4.6
-Flask==2.2.3
-Flask-Cors==3.0.10
-itsdangerous==2.1.2
-Jinja2==3.1.2
-MarkupSafe==2.1.2
-mysql-connector-python==8.0.33
-protobuf==3.20.3
-python-dotenv==1.0.0
-six==1.16.0
-Werkzeug==2.2.3
+- click==8.1.3
+- colorama==0.4.6
+- Flask==2.2.3
+- Flask-Cors==3.0.10
+- itsdangerous==2.1.2
+- Jinja2==3.1.2
+- MarkupSafe==2.1.2
+- mysql-connector-python==8.0.33
+- protobuf==3.20.3
+- python-dotenv==1.0.0
+- six==1.16.0
+- Werkzeug==2.2.3
