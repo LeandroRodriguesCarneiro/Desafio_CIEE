@@ -1,5 +1,5 @@
 # API
-Essa é uma API CRUD feita com python flask e o banco de dados utilizado é o MySQL, também segue com um aquivo SQL com a construção do banco de dados.
+Essa é uma API CRUD feita com python flask e o banco de dados utilizado é o MySQL, também segue com um aquivo SQL com a construção do banco de dados. O arquivo .env é onde vai as credenciais de login para o banco de dados.
 Para fazer uso deste programa inicialmente utilize o seguinte comando para criação de ambiente virtual. 
 
 --> python -m venv venv
