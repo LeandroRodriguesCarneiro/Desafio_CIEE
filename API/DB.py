@@ -13,7 +13,7 @@ def db_close(conection):
 def create_BD():
     conection = mysql.connector.connect(host = os.getenv('DB_ADDR'),user=os.getenv('DB_USER'),password=os.getenv('PASSW'))
     cursor = conection.cursor()
-    sql = "CREATE DATABASE IF NOT EXISTS  desafio_ciee;"
+    sql = f"CREATE DATABASE IF NOT EXISTS  {os.getenv('DB_NAME')};"
     cursor.execute(sql)
     db_close(conection)
 
