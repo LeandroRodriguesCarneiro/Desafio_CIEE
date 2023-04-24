@@ -1,1 +1,32 @@
-<p>update-game works!</p>
+<h2>Atualizar Jogos</h2>
+<div class="input" *ngIf="request">
+    <div class="input-text">
+        <label for="title">Titulo:
+            <input type="text" id="title" name="title" placeholder="Novo Titulo" [(ngModel)]="request.title">
+        </label>
+        <label for="description">Descricao:
+            <textarea name="description" id="description" placeholder="Descricao" [(ngModel)]="request.description"></textarea>
+        </label>
+        <label for="year">Ano de lancamento:
+            <input type="number" name="year" id="year" placeholder="Digite o ano de lancamento do jogo" [(ngModel)]="request.lauch_date">
+        </label>
+    </div>
+    <div class="input-checkbox">
+        <label for="developer" *ngIf="response_developer">Desenvolvedores:
+            <div *ngFor="let developer of response_developer.data">
+                <input type="radio" name="developer" id="developer" [value]="developer.id" [checked]="developer.id == request.developer" [(ngModel)]="request.developer">{{developer.developer}}
+            </div>  
+            <p>Selecione apenas uma Desenvolvedora</p>
+        </label>
+        <label *ngIf="response_gender">
+            Gêneros:
+            <div *ngFor="let gender of response_gender.data">
+              <label>
+                <input type="checkbox" name="genders" [value]="gender.id" [checked]="request.genders.includes(gender.id)" (click)="updateGenders($event, gender.id)">
+                {{gender.gender}}
+              </label>
+            </div>
+          </label>        
+    </div>
+    <button (click)="update()">Atualizar</button>
+</div>

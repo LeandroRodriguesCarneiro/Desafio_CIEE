@@ -71,11 +71,11 @@ def add_genders(gender):
         return f'Esse Genero {gender} ja existe'
     db_close(conection)
 
-def add_game(game,description,lauch_date,developer,gender,genderII,genderIII,genderIV,genderV):
+def add_game(game,description,launch_date,developer,gender,genderII,genderIII,genderIV,genderV):
     conection = db_conection()
     create_table(conection)
     cursor = conection.cursor()
-    sql = f'INSERT INTO `game` (`TITLE`, `DESCRIPTION`, `LAUNCH_DATE`, `DEVELOPER`, `GENDER`, `GENDERII`, `GENDERIII`, `GENDERIV`, `GENDERV`) VALUES ("{game}", "{description}", "{lauch_date}", {developer}, {gender}, {genderII}, {genderIII}, {genderIV}, {genderV});'
+    sql = f'INSERT INTO `game` (`TITLE`, `DESCRIPTION`, `LAUNCH_DATE`, `DEVELOPER`, `GENDER`, `GENDERII`, `GENDERIII`, `GENDERIV`, `GENDERV`) VALUES ("{game}", "{description}", "{launch_date}", {developer}, {gender}, {genderII}, {genderIII}, {genderIV}, {genderV});'
     try:
         cursor.execute(sql)
         cursor.close()
@@ -226,28 +226,11 @@ def alter_gender(id,gender):
         return 'Ouve um problema ao editar o registro'
     db_close(conection)
 
-def alter_game(id, type, game):
+def alter_game(id,title,description,launch_date,developer,gender,genderII,genderIII,genderIV,genderV):
     conection = db_conection()
     create_table(conection)
     cursor = conection.cursor()
-    if type == 'title':
-        sql = f"UPDATE game SET TITLE = '{game}' WHERE game.ID = {id};"
-    elif type== 'description':
-        sql = f"UPDATE game SET DESCRIPTION = '{game}' WHERE game.ID = {id};"
-    elif type == 'lauch_date':
-        sql = f"UPDATE game SET LAUNCH_DATE = '{game}' WHERE game.ID = {id};"
-    elif type == 'developer':
-        sql = f"UPDATE game SET DEVELOPER = '{game}' WHERE game.ID = {id};"
-    elif type == 'gender':
-        sql = f'UPDATE game SET GENDER = "{game}" WHERE game.ID = {id};'
-    elif type == 'genderII':
-        sql = f'UPDATE game SET GENDERII = "{game}" WHERE game.ID = {id};'
-    elif type == 'genderIII':
-        sql = f'UPDATE game SET GENDERIII = "{game}" WHERE game.ID = {id};'
-    elif type == 'genderIV':
-        sql = f'UPDATE game SET GENDERIV = "{game}" WHERE game.ID = {id};'
-    elif type == 'genderV':
-        sql = f'UPDATE game SET GENDERV = "{game}" WHERE game.ID = {id};'
+    sql = f'UPDATE game SET TITLE= "{title}", DESCRIPTION= "{description}", LAUNCH_DATE = "{launch_date}", DEVELOPER="{developer}", GENDER="{gender}", GENDERII="{genderII}", GENDERIII="{genderIII}", GENDERIV="{genderIV}", GENDERV="{genderV}" WHERE game.ID = {id};'
     try:
         cursor.execute(sql)
         cursor.close()
